@@ -28,7 +28,7 @@ class HomeController extends AbstractController
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         // TODO: Implement process() method.
-        return $this->render('<h1>Bienvenu home</h1>');
+        return $this->render('index.twig');
 
         }
 

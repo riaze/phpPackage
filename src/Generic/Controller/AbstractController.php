@@ -9,16 +9,30 @@
 namespace Generic\Controller;
 
 
+use Generic\Render\TwigRender;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Server\MiddlewareInterface;
 
 abstract class AbstractController implements MiddlewareInterface
 {
-    public function render(string $html )
+
+    /**
+     * @var TwigRenderer
+     */
+    private $twigRenderer;
+
+    public function __construct(TwigRender $twigRenderer)
+     {
+
+         $this->twigRenderer = $twigRenderer;
+     }
+
+    public function render(string $pathView )
     {
     $response = new Response
     (
-        200,[], $html
+        200,[],
+        $this->twigRenderer->render($pathView)
 
 
     );

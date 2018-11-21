@@ -9,6 +9,8 @@ class ComposerStaticInit956fbd40c2ca32615674808071194e2a
     public static $files = array (
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6f2c5977e422114bbaec553e7c77ee8b' => __DIR__ . '/..' . '/http-interop/response-sender/src/functions.php',
     );
 
@@ -17,6 +19,15 @@ class ComposerStaticInit956fbd40c2ca32615674808071194e2a
         array (
             'Zend\\Stdlib\\' => 12,
             'Zend\\Expressive\\Router\\' => 23,
+        ),
+        'T' => 
+        array (
+            'Twig\\' => 5,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
         'P' => 
         array (
@@ -49,6 +60,18 @@ class ComposerStaticInit956fbd40c2ca32615674808071194e2a
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-expressive-fastroute/src',
             1 => __DIR__ . '/..' . '/zendframework/zend-expressive-router/src',
+        ),
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
         'Psr\\Http\\Server\\' => 
         array (
@@ -85,11 +108,22 @@ class ComposerStaticInit956fbd40c2ca32615674808071194e2a
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Twig_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit956fbd40c2ca32615674808071194e2a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit956fbd40c2ca32615674808071194e2a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit956fbd40c2ca32615674808071194e2a::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

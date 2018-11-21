@@ -10,19 +10,22 @@ require dirname( __DIR__) . '/vendor/autoload.php';
 
 $request = \GuzzleHttp\Psr7\ServerRequest::fromGlobals();
 
-/*$url = $request->getUri()->getPath();
+/**
+ *
+ */
+$router = new \Generic\Router\Router();
+
+$renderer = new \Generic\Render\TwigRender();
 
 
-echo '<pre>';
-var_dump($url);
-echo '</pre>';*/
+
 $router = new Router();
 
 $app = new App(
     [new TrailingSlashMiddleware(),
     new RouteMiddleware($router),
     new NotFoundMiddleware()],
-   [ new \App\Front\FrontModule($router)]
+   [ new \App\Front\FrontModule($router, $renderer)]
 
 
 

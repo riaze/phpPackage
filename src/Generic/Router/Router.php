@@ -31,10 +31,11 @@ class Router
      * Rajouter une string dans la routeur
      * @param string $url
      * @param MiddlewareInterface $middleware
+     * @param string $name
      */
-    public function addRoute(string $url, MiddlewareInterface $middleware): void{
+    public function addRoute(string $url, MiddlewareInterface $middleware,string $name): void{
         //on créé une route que le routeur externe comprend
-        $route = new Route($url,$middleware);
+        $route = new Route($url,$middleware, ['GET'], $name);
 
         //on renseigne une nouvelle route dans le routeur extern
         $this->externalRouter->addRoute($route);

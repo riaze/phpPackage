@@ -7,8 +7,10 @@
  */
 
 namespace App\Front;
+use App\Front\Controller\AboutController;
 use App\Front\Controller\ContactController;
 use App\Front\Controller\HomeController;
+use Generic\Render\TwigRender;
 use Generic\Router\Router;
 
 /**
@@ -22,11 +24,12 @@ use Generic\Router\Router;
 class FrontModule
 {
 
-    public function __construct(Router $router){
+    public function __construct(Router $router, TwigRender $twigRender){
         //Routage de l'url "/home"
 
-        $router->addRoute('/', new HomeController());
-        $router->addRoute('/contact', new ContactController());
+        $router->addRoute('/', new HomeController($twigRender), 'homepage');
+        $router->addRoute('/contact', new ContactController($twigRender),'front-contact');
+        $router->addRoute('/about', new AboutController($twigRender), 'front-about');
 
 
     }

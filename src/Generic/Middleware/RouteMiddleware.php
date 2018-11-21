@@ -18,7 +18,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 class RouteMiddleware implements MiddlewareInterface
 {
 
-    public function __construct(Router $router)
+    public function __construct(Router $router )
     {
         $this->router = $router;
 
