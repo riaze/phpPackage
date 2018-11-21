@@ -10,6 +10,7 @@ namespace App\Front;
 use App\Front\Controller\AboutController;
 use App\Front\Controller\ContactController;
 use App\Front\Controller\HomeController;
+use App\Front\Controller\ProjectShowController;
 use Generic\Render\TwigRender;
 use Generic\Router\Router;
 
@@ -30,6 +31,7 @@ class FrontModule
         $router->addRoute('/', new HomeController($twigRender), 'homepage');
         $router->addRoute('/contact', new ContactController($twigRender),'front-contact');
         $router->addRoute('/about', new AboutController($twigRender), 'front-about');
+        $router->addRoute('/projet/{id}', new ProjectShowController($twigRender), 'front_project_show');
 
 
     }
